@@ -1,7 +1,6 @@
 package com.designpatternsex.examples.factory;
 
 public abstract class Robo {
-
   public abstract void work();
 }
 
@@ -21,3 +20,9 @@ class CookingRobo extends Robo {
   }
 }
 
+class SpeakingRobo extends Robo {
+  @Override
+  public void work() {
+    System.out.println("Speaking in multiple languages...");
+  }
+}
