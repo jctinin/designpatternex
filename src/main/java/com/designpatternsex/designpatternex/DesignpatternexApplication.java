@@ -3,6 +3,10 @@ package com.designpatternsex.designpatternex;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.designpatternsex.examples.adapter.NewRobot;
+import com.designpatternsex.examples.adapter.OldRobot;
+import com.designpatternsex.examples.adapter.OldRobotImpl;
+import com.designpatternsex.examples.adapter.RobotAdapter;
 import com.designpatternsex.examples.factory.CleaningRoboFactory;
 import com.designpatternsex.examples.factory.CookingRoboFactory;
 import com.designpatternsex.examples.factory.RoboFactory;
@@ -25,6 +29,12 @@ public class DesignpatternexApplication {
 
 		RoboFactory speakingFactory = new SpeakingRoboFactory();
 		speakingFactory.newRobo();
+
+		System.out.println("Adapter Pattern Example:");
+
+		OldRobot oldRobot = new OldRobotImpl();
+		NewRobot newRobot = new RobotAdapter(oldRobot);
+		newRobot.walkAndTalk("North", "Hello, I am a new robot!");
 
 
 	}
